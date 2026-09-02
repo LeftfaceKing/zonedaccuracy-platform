@@ -63,7 +63,7 @@ export default function PlatformOverview() {
   const [activeNode, setActiveNode] = useState<string | null>(null);
 
   return (
-    <section className="platform-overview" id="architecture">
+    <section className="platform-overview" id="platform">
       <div className="platform-background-grid" aria-hidden="true" />
 
       <div className="platform-section-header">

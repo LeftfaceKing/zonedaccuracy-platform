@@ -2,8 +2,11 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="hero" id="platform">
-      <div className="hero-grid" aria-hidden="true" />
+    <section className="hero" id="top">
+      <div
+        className="hero-grid"
+        aria-hidden="true"
+      />
 
       <div
         className="hero-glow hero-glow-green"
@@ -41,7 +44,7 @@ export default function Hero() {
           <div className="hero-actions">
             <a
               className="button button-primary"
-              href="#architecture"
+              href="#platform"
             >
               Explore Platform
               <span aria-hidden="true">→</span>
@@ -49,7 +52,9 @@ export default function Hero() {
 
             <a
               className="button button-secondary"
-              href="#projects"
+              href="https://github.com/LeftfaceKing?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               View Projects
               <span aria-hidden="true">↗</span>
@@ -82,10 +87,20 @@ export default function Hero() {
             <span className="radar-corner radar-corner-bl" />
             <span className="radar-corner radar-corner-br" />
 
-            <div className="radar-scan" aria-hidden="true" />
+            <div
+              className="radar-scan"
+              aria-hidden="true"
+            />
 
-            <div className="logo-orbit orbit-one" aria-hidden="true" />
-            <div className="logo-orbit orbit-two" aria-hidden="true" />
+            <div
+              className="logo-orbit orbit-one"
+              aria-hidden="true"
+            />
+
+            <div
+              className="logo-orbit orbit-two"
+              aria-hidden="true"
+            />
 
             <Image
               src="/logos/zonedaccuracy-primary.png"
@@ -136,30 +151,6 @@ export default function Hero() {
 
         <span>ZA / 001</span>
       </div>
-
-      <div
-        id="projects"
-        className="anchor-target"
-        aria-hidden="true"
-      />
-
-      <div
-        id="architecture"
-        className="anchor-target"
-        aria-hidden="true"
-      />
-
-      <div
-        id="cloud-lab"
-        className="anchor-target"
-        aria-hidden="true"
-      />
-
-      <div
-        id="guardian"
-        className="anchor-target"
-        aria-hidden="true"
-      />
     </section>
   );
 }

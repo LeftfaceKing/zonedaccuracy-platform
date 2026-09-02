@@ -344,7 +344,8 @@ a {
 .hero {
   position: relative;
 
-  min-height: 100vh;
+  min-height: auto;
+  height: auto;
 
   padding-top: 84px;
 
@@ -423,9 +424,9 @@ a {
   margin: 0 auto;
 
   padding:
-    78px
+    58px
     0
-    62px;
+    30px;
 
   display: grid;
 
@@ -623,7 +624,7 @@ a {
 
   width: 100%;
 
-  min-height: 540px;
+  min-height: 430px;
 
   aspect-ratio: 1 / 0.88;
 }
@@ -656,9 +657,9 @@ a {
   position: absolute;
 
   inset:
-    44px
+    34px
     0
-    20px;
+    14px;
 
   display: flex;
   align-items: center;
@@ -1163,7 +1164,7 @@ a {
     0
     auto;
 
-  padding-bottom: 23px;
+  padding-bottom: 20px;
 
   display: grid;
 

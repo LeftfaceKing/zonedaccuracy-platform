@@ -76,7 +76,7 @@ export default function SiteFooter() {
 
           <div className="site-footer-actions">
             <a
-              href="https://github.com/LeftfaceKing?tab=repositories"
+              href="https://github.com/LeftfaceKing"
               target="_blank"
               rel="noopener noreferrer"
               className="site-footer-primary"
@@ -86,10 +86,10 @@ export default function SiteFooter() {
             </a>
 
             <a
-              href="#projects"
+              href="#engineering-profile"
               className="site-footer-secondary"
             >
-              EXPLORE PROJECTS
+              VIEW PROFILE
               <span aria-hidden="true">→</span>
             </a>
           </div>

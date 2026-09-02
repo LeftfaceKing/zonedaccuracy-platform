@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   {
     label: "PLATFORM",
-    href: "#platform",
+    href: "#top",
   },
   {
     label: "PROJECTS",
@@ -47,10 +47,7 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -69,6 +66,7 @@ export default function Navbar() {
           href="#top"
           className="navbar-brand"
           onClick={closeMenu}
+          aria-label="Return to top of ZonedAccuracy"
         >
           <span
             className="navbar-globe"
@@ -91,9 +89,7 @@ export default function Navbar() {
 
         <nav
           className={`navbar-links ${
-            menuOpen
-              ? "navbar-links-open"
-              : ""
+            menuOpen ? "navbar-links-open" : ""
           }`}
           aria-label="Primary navigation"
         >
@@ -104,9 +100,7 @@ export default function Navbar() {
               onClick={closeMenu}
             >
               <span>
-                {String(
-                  index + 1,
-                ).padStart(2, "0")}
+                {String(index + 1).padStart(2, "0")}
               </span>
 
               {item.label}
@@ -116,10 +110,11 @@ export default function Navbar() {
 
         <div className="navbar-actions">
           <a
-            href="https://github.com/LeftfaceKing?tab=repositories"
+            href="https://github.com/LeftfaceKing"
             target="_blank"
             rel="noopener noreferrer"
             className="navbar-github"
+            aria-label="Open LeftfaceKing GitHub profile"
           >
             GITHUB
             <span aria-hidden="true">↗</span>
