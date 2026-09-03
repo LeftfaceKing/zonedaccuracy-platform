@@ -284,7 +284,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="projects-roadmap">
+      <div className="projects-roadmap anime-projects-roadmap">
         <div className="projects-roadmap-header">
           <span>
             DEVELOPER TOOLS / APPLICATION ENGINEERING
@@ -297,7 +297,7 @@ export default function Projects() {
 
         {developerProjects.map((project) => (
           <article
-            className="roadmap-project"
+            className="roadmap-project anime-project-row"
             key={project.number}
           >
             <span className="roadmap-number">
@@ -314,29 +314,47 @@ export default function Projects() {
               {project.status}
             </span>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "14px",
-              }}
-            >
+            <div className="anime-project-actions">
               <a
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="roadmap-arrow"
-                aria-label={`View ${project.title} repository`}
+                className="anime-repository-link"
+                aria-label={`View ${project.title} repository on GitHub`}
                 title="GitHub repository"
               >
-                ↗
+                <span
+                  className="anime-slash anime-slash-down"
+                  aria-hidden="true"
+                />
+
+                <span
+                  className="anime-slash anime-slash-up"
+                  aria-hidden="true"
+                />
+
+                <span
+                  className="anime-slash-flash"
+                  aria-hidden="true"
+                />
+
+                <span
+                  className="anime-repository-arrow"
+                  aria-hidden="true"
+                >
+                  ↗
+                </span>
+
+                <span className="anime-repository-title">
+                  ANIME RELEASE CLI
+                </span>
               </a>
 
               <a
                 href={project.release}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="roadmap-arrow"
+                className="anime-version-link"
                 aria-label={`View ${project.title} v1.0.0 release`}
                 title="v1.0.0 release"
               >

@@ -7497,7 +7497,7 @@ html {
   color: #777e74;
 
   font-family: monospace;
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 0.09em;
 
   text-decoration: none;
@@ -8253,5 +8253,1214 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .engineering-profile-terminal-cursor {
     animation: none;
+  }
+}
+/* ================================================= */
+/* APP-001 — ANIME SLASH REPOSITORY LINK */
+/* ================================================= */
+
+.anime-project-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/*
+  Repository trigger.
+  The enlarged invisible interaction area gives the
+  slash enough room to travel without changing the
+  existing roadmap layout.
+*/
+
+.anime-slash-link {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+
+  isolation: isolate;
+
+  color: #5b6258;
+
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+/*
+  Red atmospheric glow that flashes at the instant
+  of the slash.
+*/
+
+.anime-slash-link::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -2;
+
+  left: 50%;
+  top: 50%;
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 42, 31, 0.18),
+      rgba(255, 42, 31, 0.04) 35%,
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.45);
+
+  pointer-events: none;
+}
+
+/*
+  White impact flash.
+*/
+
+.anime-slash-link::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  left: 50%;
+  top: 50%;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.65),
+      rgba(255, 42, 31, 0.25) 28%,
+      transparent 68%
+    );
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.15);
+
+  pointer-events: none;
+}
+
+.anime-link-arrow {
+  position: relative;
+
+  z-index: 6;
+
+  display: inline-block;
+
+  transform: translate(0, 0);
+
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease;
+}
+
+/* ------------------------------------------------ */
+/* SLASH BLADES */
+/* ------------------------------------------------ */
+
+.anime-slash {
+  position: absolute;
+
+  z-index: 4;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transform-origin: center;
+}
+
+/*
+  Main blade.
+*/
+
+.anime-slash-primary {
+  width: 92px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 42, 31, 0.08) 7%,
+      var(--za-red) 26%,
+      #ffffff 50%,
+      var(--za-red) 72%,
+      rgba(255, 42, 31, 0.12) 92%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px
+    rgba(255, 255, 255, 0.8),
+    0 0 9px
+    rgba(255, 42, 31, 0.95),
+    0 0 22px
+    rgba(255, 42, 31, 0.4);
+}
+
+/*
+  Smaller second blade gives the effect the
+  layered hand-drawn anime slash appearance.
+*/
+
+.anime-slash-secondary {
+  width: 70px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 42, 31, 0.55) 20%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 42, 31, 0.55) 80%,
+      transparent
+    );
+
+  box-shadow:
+    0 0 7px
+    rgba(255, 42, 31, 0.7);
+}
+
+/* ------------------------------------------------ */
+/* IMPACT SPARKS */
+/* ------------------------------------------------ */
+
+.anime-slash-spark {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 50%;
+  top: 50%;
+
+  width: 13px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--za-red),
+      transparent
+    );
+
+  opacity: 0;
+
+  transform-origin: left center;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 0 4px
+    rgba(255, 42, 31, 0.8);
+}
+
+.anime-slash-spark-one {
+  transform:
+    translate(2px, -2px)
+    rotate(-70deg);
+}
+
+.anime-slash-spark-two {
+  transform:
+    translate(1px, 1px)
+    rotate(20deg);
+}
+
+.anime-slash-spark-three {
+  transform:
+    translate(-1px, 3px)
+    rotate(125deg);
+}
+
+/* ------------------------------------------------ */
+/* HOVER */
+/* ------------------------------------------------ */
+
+.anime-slash-link:hover {
+  color: #ffffff;
+
+  text-shadow:
+    0 0 5px
+    rgba(255, 255, 255, 0.85),
+    0 0 12px
+    rgba(255, 42, 31, 0.95),
+    0 0 24px
+    rgba(255, 42, 31, 0.4);
+}
+
+.anime-slash-link:hover::before {
+  animation:
+    animeSlashAura
+    540ms
+    ease-out
+    both;
+}
+
+.anime-slash-link:hover::after {
+  animation:
+    animeSlashImpact
+    420ms
+    ease-out
+    both;
+}
+
+.anime-slash-link:hover
+.anime-link-arrow {
+  animation:
+    animeArrowHit
+    540ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.anime-slash-link:hover
+.anime-slash-primary {
+  animation:
+    animeSlashPrimary
+    540ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.anime-slash-link:hover
+.anime-slash-secondary {
+  animation:
+    animeSlashSecondary
+    540ms
+    45ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.anime-slash-link:hover
+.anime-slash-spark-one {
+  animation:
+    animeSparkOne
+    420ms
+    110ms
+    ease-out
+    both;
+}
+
+.anime-slash-link:hover
+.anime-slash-spark-two {
+  animation:
+    animeSparkTwo
+    420ms
+    105ms
+    ease-out
+    both;
+}
+
+.anime-slash-link:hover
+.anime-slash-spark-three {
+  animation:
+    animeSparkThree
+    420ms
+    120ms
+    ease-out
+    both;
+}
+
+/* ------------------------------------------------ */
+/* MAIN SLASH */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashPrimary {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-88px, 55px)
+      rotate(-38deg)
+      scaleX(0.1);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  43% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-38deg)
+      scaleX(1.18);
+  }
+
+  58% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-38deg)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(48px, -42px)
+      rotate(-38deg)
+      scaleX(0.72);
+  }
+}
+
+/* ------------------------------------------------ */
+/* SECONDARY SLASH */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashSecondary {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-72px, 45px)
+      rotate(-31deg)
+      scaleX(0.15);
+  }
+
+  28% {
+    opacity: 0.85;
+  }
+
+  52% {
+    opacity: 0.85;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-31deg)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(38px, -32px)
+      rotate(-31deg)
+      scaleX(0.6);
+  }
+}
+
+/* ------------------------------------------------ */
+/* ARROW IMPACT */
+/* ------------------------------------------------ */
+
+@keyframes animeArrowHit {
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    color: inherit;
+  }
+
+  24% {
+    transform:
+      translate(-1px, 1px)
+      scale(0.92);
+
+    color: #ffffff;
+  }
+
+  38% {
+    transform:
+      translate(5px, -5px)
+      scale(1.22);
+
+    color: #ffffff;
+  }
+
+  58% {
+    transform:
+      translate(2px, -2px)
+      scale(1.08);
+
+    color: var(--za-red);
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    color: var(--za-red);
+  }
+}
+
+/* ------------------------------------------------ */
+/* IMPACT FLASH */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashImpact {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.1);
+  }
+
+  35% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.55);
+  }
+
+  55% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.7);
+  }
+}
+
+/* ------------------------------------------------ */
+/* RED AURA */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashAura {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.35);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.75);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.25);
+  }
+}
+
+/* ------------------------------------------------ */
+/* SPARKS */
+/* ------------------------------------------------ */
+
+@keyframes animeSparkOne {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(1px, -1px)
+      rotate(-70deg)
+      scaleX(0.25);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(4px, -22px)
+      rotate(-70deg)
+      scaleX(1.25);
+  }
+}
+
+@keyframes animeSparkTwo {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(1px, 1px)
+      rotate(20deg)
+      scaleX(0.25);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(25px, 9px)
+      rotate(20deg)
+      scaleX(1.2);
+  }
+}
+
+@keyframes animeSparkThree {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-1px, 2px)
+      rotate(125deg)
+      scaleX(0.25);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-18px, 21px)
+      rotate(125deg)
+      scaleX(1.15);
+  }
+}
+
+/* ------------------------------------------------ */
+/* KEYBOARD FOCUS */
+/* ------------------------------------------------ */
+
+.anime-slash-link:focus-visible {
+  outline:
+    1px solid
+    var(--za-red);
+
+  outline-offset: 5px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 9px
+    rgba(255, 42, 31, 0.8);
+}
+
+/* ------------------------------------------------ */
+/* MOBILE */
+/* ------------------------------------------------ */
+
+@media (max-width: 650px) {
+  .anime-project-actions {
+    gap: 10px;
+  }
+
+  .anime-slash-link {
+    width: 30px;
+    height: 30px;
+  }
+
+  .anime-slash-primary {
+    width: 72px;
+  }
+
+  .anime-slash-secondary {
+    width: 55px;
+  }
+}
+
+/* ------------------------------------------------ */
+/* REDUCED MOTION */
+/* ------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-slash-link:hover::before,
+  .anime-slash-link:hover::after,
+  .anime-slash-link:hover
+  .anime-link-arrow,
+  .anime-slash-link:hover
+  .anime-slash-primary,
+  .anime-slash-link:hover
+  .anime-slash-secondary,
+  .anime-slash-link:hover
+  .anime-slash-spark {
+    animation: none;
+  }
+
+  .anime-slash-link:hover
+  .anime-link-arrow {
+    color: var(--za-red);
+  }
+
+  .anime-slash,
+  .anime-slash-spark {
+    display: none;
+  }
+}
+
+/* ================================================= */
+/* APP-001 — ANIME RELEASE CLI */
+/* SEQUENTIAL ANIME SLASH HOVER */
+/* ================================================= */
+
+.anime-project-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.anime-repository-link {
+  position: relative;
+
+  min-height: 42px;
+
+  padding:
+    0
+    8px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  overflow: visible;
+
+  isolation: isolate;
+
+  color: var(--za-green);
+
+  font-family: monospace;
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.anime-repository-arrow {
+  position: relative;
+
+  z-index: 5;
+
+  display: inline-block;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.anime-repository-title {
+  position: relative;
+
+  z-index: 5;
+
+  display: inline-block;
+
+  padding-bottom: 3px;
+
+  border-bottom:
+    1px solid
+    rgba(120, 217, 43, 0.55);
+
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+/* ------------------------------------------------ */
+/* VERSION */
+/* ------------------------------------------------ */
+
+.anime-version-link {
+  color:
+    rgba(120, 217, 43, 0.32);
+
+  font-family: monospace;
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.anime-version-link:hover {
+  color:
+    rgba(120, 217, 43, 0.62);
+
+  text-shadow:
+    0 0 8px
+    rgba(120, 217, 43, 0.18);
+}
+
+/* ------------------------------------------------ */
+/* SLASH BASE */
+/* ------------------------------------------------ */
+
+.anime-slash {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 50%;
+  top: 50%;
+
+  width: 125%;
+  height: 2px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform-origin: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 42, 31, 0.15) 8%,
+      var(--za-red) 25%,
+      #ffffff 48%,
+      #ffffff 52%,
+      var(--za-red) 75%,
+      rgba(255, 42, 31, 0.15) 92%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 3px
+    rgba(255, 255, 255, 0.95),
+    0 0 8px
+    rgba(255, 42, 31, 0.95),
+    0 0 18px
+    rgba(255, 42, 31, 0.55),
+    0 0 32px
+    rgba(255, 42, 31, 0.22);
+}
+
+/* ------------------------------------------------ */
+/* FIRST SLASH — DOWNWARD \ */
+/* ------------------------------------------------ */
+
+.anime-slash-down {
+  transform:
+    translate(-50%, -50%)
+    rotate(14deg)
+    scaleX(0);
+}
+
+/* ------------------------------------------------ */
+/* SECOND SLASH — BACK UP / */
+/* ------------------------------------------------ */
+
+.anime-slash-up {
+  transform:
+    translate(-50%, -50%)
+    rotate(-14deg)
+    scaleX(0);
+}
+
+/* ------------------------------------------------ */
+/* CENTER IMPACT FLASH */
+/* ------------------------------------------------ */
+
+.anime-slash-flash {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 50%;
+  top: 50%;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 42, 31, 0.32) 25%,
+      rgba(255, 42, 31, 0.09) 47%,
+      transparent 72%
+    );
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.1);
+}
+
+/* ------------------------------------------------ */
+/* HOVER */
+/* ------------------------------------------------ */
+
+.anime-repository-link:hover {
+  color: #ffffff;
+
+  text-shadow:
+    0 0 5px
+    rgba(255, 255, 255, 0.55),
+    0 0 12px
+    rgba(255, 42, 31, 0.48);
+}
+
+.anime-repository-link:hover
+.anime-repository-title {
+  border-color:
+    rgba(255, 42, 31, 0.75);
+
+  color: #ffffff;
+}
+
+.anime-repository-link:hover
+.anime-repository-arrow {
+  color: #ffffff;
+
+  text-shadow:
+    0 0 8px
+    rgba(255, 42, 31, 0.85);
+
+  animation:
+    animeArrowImpact
+    780ms
+    ease-out
+    both;
+}
+
+/*
+  IMPORTANT:
+
+  Slash 1 plays first.
+
+  Slash 2 does not begin until Slash 1
+  has completely finished.
+*/
+
+.anime-repository-link:hover
+.anime-slash-down {
+  animation:
+    animeSlashDown
+    340ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.anime-repository-link:hover
+.anime-slash-up {
+  animation:
+    animeSlashUp
+    340ms
+    380ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.anime-repository-link:hover
+.anime-slash-flash {
+  animation:
+    animeSlashFlash
+    220ms
+    325ms
+    ease-out
+    both;
+}
+
+/* ------------------------------------------------ */
+/* FIRST SLASH */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashDown {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-68%, -155%)
+      rotate(14deg)
+      scaleX(0.05);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  42% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(14deg)
+      scaleX(1.08);
+  }
+
+  68% {
+    opacity: 1;
+
+    transform:
+      translate(-45%, -30%)
+      rotate(14deg)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-28%, 65%)
+      rotate(14deg)
+      scaleX(0.35);
+  }
+}
+
+/* ------------------------------------------------ */
+/* SECOND SLASH */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashUp {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-28%, 70%)
+      rotate(-14deg)
+      scaleX(0.05);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  42% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-14deg)
+      scaleX(1.08);
+  }
+
+  68% {
+    opacity: 1;
+
+    transform:
+      translate(-56%, -68%)
+      rotate(-14deg)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-72%, -155%)
+      rotate(-14deg)
+      scaleX(0.35);
+  }
+}
+
+/* ------------------------------------------------ */
+/* IMPACT FLASH BETWEEN SLASHES */
+/* ------------------------------------------------ */
+
+@keyframes animeSlashFlash {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.1);
+  }
+
+  35% {
+    opacity: 0.9;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.55);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.7);
+  }
+}
+
+/* ------------------------------------------------ */
+/* LINK IMPACT */
+/* ------------------------------------------------ */
+
+@keyframes animeArrowImpact {
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  32% {
+    transform:
+      translate(2px, -2px)
+      scale(1.1);
+  }
+
+  48% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  72% {
+    transform:
+      translate(2px, -2px)
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+}
+
+/* ------------------------------------------------ */
+/* KEYBOARD */
+/* ------------------------------------------------ */
+
+.anime-repository-link:focus-visible {
+  outline:
+    1px solid
+    var(--za-red);
+
+  outline-offset: 5px;
+}
+
+/* ------------------------------------------------ */
+/* MOBILE */
+/* ------------------------------------------------ */
+
+@media (max-width: 650px) {
+  .anime-project-actions {
+    gap: 12px;
+  }
+
+  .anime-repository-link {
+    font-size: 8px;
+
+    gap: 6px;
+
+    padding:
+      0
+      4px;
+  }
+
+  .anime-repository-arrow {
+    font-size: 14px;
+  }
+
+  .anime-version-link {
+    font-size: 8px;
+  }
+
+  .anime-slash {
+    width: 115%;
+  }
+}
+
+/* ------------------------------------------------ */
+/* REDUCED MOTION */
+/* ------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-repository-link:hover
+  .anime-slash-down,
+  .anime-repository-link:hover
+  .anime-slash-up,
+  .anime-repository-link:hover
+  .anime-slash-flash,
+  .anime-repository-link:hover
+  .anime-repository-arrow {
+    animation: none;
+  }
+
+  .anime-slash,
+  .anime-slash-flash {
+    display: none;
+  }
+
+  .anime-repository-link:hover {
+    color: var(--za-red);
   }
 }
