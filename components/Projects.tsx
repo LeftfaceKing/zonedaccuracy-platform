@@ -50,6 +50,18 @@ const roadmapProjects = [
   },
 ];
 
+const developerProjects = [
+  {
+    number: "APP-001",
+    title: "ANIME RELEASE CLI",
+    status: "COMPLETED",
+    tech: "PYTHON / GRAPHQL / REST / MULTI-API",
+    href: "https://github.com/LeftfaceKing/anime-release-cli",
+    release:
+      "https://github.com/LeftfaceKing/anime-release-cli/releases/tag/v1.0.0",
+  },
+];
+
 export default function Projects() {
   return (
     <section
@@ -272,12 +284,97 @@ export default function Projects() {
         ))}
       </div>
 
+      <div className="projects-roadmap">
+        <div className="projects-roadmap-header">
+          <span>
+            DEVELOPER TOOLS / APPLICATION ENGINEERING
+          </span>
+
+          <span>
+            ZA / APPLICATIONS
+          </span>
+        </div>
+
+        {developerProjects.map((project) => (
+          <article
+            className="roadmap-project"
+            key={project.number}
+          >
+            <span className="roadmap-number">
+              {project.number}
+            </span>
+
+            <h3>{project.title}</h3>
+
+            <span className="roadmap-tech">
+              {project.tech}
+            </span>
+
+            <span className="roadmap-status roadmap-status-development">
+              {project.status}
+            </span>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "14px",
+              }}
+            >
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="roadmap-arrow"
+                aria-label={`View ${project.title} repository`}
+                title="GitHub repository"
+              >
+                ↗
+              </a>
+
+              <a
+                href={project.release}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="roadmap-arrow"
+                aria-label={`View ${project.title} v1.0.0 release`}
+                title="v1.0.0 release"
+              >
+                1.0
+              </a>
+            </div>
+          </article>
+        ))}
+
+        <div
+          style={{
+            padding: "24px 0 0",
+            maxWidth: "900px",
+          }}
+        >
+          <p>
+            Anime Release CLI is a globally installable
+            Python command-line application for anime
+            discovery, seasonal releases, episode
+            schedules, and streaming availability. The
+            application integrates AniList, Kitsu, and
+            Tsuzuki behind a fault-tolerant multi-provider
+            architecture with automatic API fallback,
+            response normalization, local timezone
+            processing, and packaged CLI distribution
+            through pipx.
+          </p>
+        </div>
+      </div>
+
       <div className="projects-footer">
         <span>ZA / ENGINEERING SYSTEMS</span>
 
         <div />
 
-        <span>001—008</span>
+        <span>
+          CLOUD + APPLICATION ENGINEERING
+        </span>
       </div>
     </section>
   );
