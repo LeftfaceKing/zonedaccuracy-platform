@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zonedaccuracy-web-service
+spec:
+  selector:
+    app: zonedaccuracy-web
+
+  type: NodePort
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: 30080
+      

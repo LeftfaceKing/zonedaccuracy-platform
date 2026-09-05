@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zonedaccuracy-web
+  labels:
+    app: zonedaccuracy-web
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: zonedaccuracy-web
+
+  template:
+    metadata:
+      labels:
+        app: zonedaccuracy-web
+
+    spec:
+      containers:
+        - name: zonedaccuracy-web
+          image: us-central1-docker.pkg.dev/project-462b5ff6-07a3-49f5-ac7/zonedaccuracy/zonedaccuracy-platform:latest
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 3000
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+              

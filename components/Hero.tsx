@@ -103,7 +103,7 @@ export default function Hero() {
             />
 
             <Image
-              src="/logos/zonedaccuracy-primary.png"
+              src="/zonedaccuracy-icon.png"
               alt="ZonedAccuracy radar globe"
               width={1200}
               height={1200}
