@@ -1,25 +1,6 @@
-const metrics = [
-  {
-    label: "CLUSTER STATE",
-    value: "ARCHIVED",
-    detail: "GKE / PROJECT 001",
-  },
-  {
-    label: "DEPLOYMENTS",
-    value: "03",
-    detail: "VALIDATED WORKLOADS",
-  },
-  {
-    label: "SERVICES",
-    value: "03",
-    detail: "KUBERNETES SERVICES",
-  },
-  {
-    label: "INFRA COST",
-    value: "$0.00",
-    detail: "ACTIVE RESOURCES",
-  },
-];
+"use client";
+
+import { useEffect, useState } from "react";
 
 const activity = [
   {
@@ -45,6 +26,59 @@ const activity = [
 ];
 
 export default function CloudLab() {
+  const [infraCost, setInfraCost] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function loadInfraCost() {
+      try {
+        const response = await fetch("/api/infra-cost", {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to retrieve infrastructure cost.");
+        }
+
+        const data = await response.json();
+        setInfraCost(Number(data.cost ?? 0));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    loadInfraCost();
+
+    const interval = setInterval(loadInfraCost, 15 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const metrics = [
+    {
+      label: "CLUSTER STATE",
+      value: "ARCHIVED",
+      detail: "GKE / PROJECT 001",
+    },
+    {
+      label: "DEPLOYMENTS",
+      value: "03",
+      detail: "VALIDATED WORKLOADS",
+    },
+    {
+      label: "SERVICES",
+      value: "03",
+      detail: "KUBERNETES SERVICES",
+    },
+    {
+      label: "INFRA COST",
+      value:
+        infraCost === null
+          ? "SYNCING"
+          : `$${infraCost.toFixed(2)}`,
+      detail: "CURRENT MONTH / GCP",
+    },
+  ];
+
   return (
     <section className="cloud-lab" id="cloud-lab">
       <div className="cloud-lab-grid" aria-hidden="true" />

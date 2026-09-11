@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-const bigquery = new BigQuery();
+const bigquery = new BigQuery({
+  projectId: process.env.GCP_BILLING_PROJECT,
+});
 
 export async function GET() {
   try {
